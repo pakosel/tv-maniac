@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {TvmazeService} from '../tvmaze.service';
 
 @Component({
   selector: 'tm-search',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchComponent implements OnInit {
 
-  constructor() { }
+  constructor(tv: TvmazeService) {
+    tv.searchShows('flash');
+  }
 
   ngOnInit() {
   }
