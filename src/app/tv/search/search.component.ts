@@ -10,11 +10,13 @@ import {Show} from '../tv.models';
 export class SearchComponent implements OnInit {
   shows: Show[] = [];
 
-  constructor(tv: TvmazeService) {
-    tv.searchShows('flash')
-      .subscribe(shows => this.shows = shows);
+  constructor(private tv: TvmazeService) {
   }
 
+  search(query: string): void {
+    this.tv.searchShows(query)
+      .subscribe(shows => this.shows = shows);
+  }
   ngOnInit() {
   }
 
