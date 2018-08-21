@@ -5,12 +5,12 @@
 
   <div class="col">
     <h1 class="h3">Search</h1>
-    <div class="input-group">
-      <input #queryRef type="search" class="form-control">
+    <form class="input-group">
+      <input name="query" [(ngModel)]="query" type="search" class="form-control">
       <div class="input-group-append">
-        <button class="btn btn-primary" (click)="search(queryRef.value)">find</button>
+        <button type="submit" class="btn btn-primary" (click)="search(query)">find</button>
       </div>
-    </div>
+    </form>
   </div>
 
   <section class="row">
