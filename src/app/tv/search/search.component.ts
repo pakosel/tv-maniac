@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {TvmazeService} from '../tvmaze.service';
+import {Show} from '../tv.models';
 
 @Component({
   selector: 'tm-search',
@@ -7,9 +8,11 @@ import {TvmazeService} from '../tvmaze.service';
   styleUrls: ['./search.component.scss']
 })
 export class SearchComponent implements OnInit {
+  shows: Show[] = [];
 
   constructor(tv: TvmazeService) {
-    tv.searchShows('flash');
+    tv.searchShows('flash')
+      .subscribe(shows => this.shows = shows);
   }
 
   ngOnInit() {
