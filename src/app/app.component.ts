@@ -10,5 +10,7 @@ export class AppComponent {
 
   handleClick(event: MouseEvent) {
     this.title = event.clientX + '';
+    console.log(event);
+    console.warn(event.clientX);
   }
 }
