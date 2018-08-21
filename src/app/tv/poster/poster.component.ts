@@ -8,10 +8,12 @@ import {Show} from '../tv.models';
 })
 export class PosterComponent implements OnInit {
   @Input() show: Show;
+  imageUrl: string;
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor() {
   }
 
+  ngOnInit() {
+    this.imageUrl = this.show.image.medium;
+  }
 }
