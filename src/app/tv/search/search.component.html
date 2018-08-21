@@ -15,8 +15,7 @@
 
   <section class="row">
     <div class="col col-4" *ngFor="let show of shows">
-      <img class="img-fluid rounded" [src]="show.image.medium" alt="">
-      <h4>{{show.name}}</h4>
+      <tm-poster [show]="show"></tm-poster>
     </div>
   </section>
 </div>
