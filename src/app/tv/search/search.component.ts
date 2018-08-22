@@ -11,7 +11,7 @@ import {BookmarksService} from '../../bookmarks/bookmarks.service';
 export class SearchComponent implements OnInit {
   shows: Show[] = [];
   query = 'flash';
-
+p
   constructor(private tv: TvmazeService,
               private bs: BookmarksService<Show>) {
   }
