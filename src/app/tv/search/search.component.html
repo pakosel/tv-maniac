@@ -22,6 +22,7 @@
     <div class="col col-4" *ngFor="let show of shows">
       <tm-poster [show]="show">
         <tm-bookmark-add [show]="show"></tm-bookmark-add>
+        <tm-bookmark-remove [show]="show"></tm-bookmark-remove>
       </tm-poster>
     </div>
   </section>
