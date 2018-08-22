@@ -14,6 +14,8 @@ export class ShowDetailsComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
               private tv: TvmazeService) {
+    this.show = route.snapshot.data.show;
+
     const {id} = this.route.snapshot.params as ShowDetailsParams; // destructering
     this.tv.getShow(id)
       .subscribe(show => this.show = show);
