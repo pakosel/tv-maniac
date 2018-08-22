@@ -4,16 +4,17 @@
     <div class="form-group">
       <label for="email">Email</label>
       <input [(ngModel)]="contact.email"
-             [ngClass]="{'is-invalid': emailRef.dirty && emailRef.invalid}"
+             [ngClass]="{'is-invalid': displayErrors(emailRef)}"
              #emailRef="ngModel"
              required minlength="3" email
              name="email" id="email" type="email" class="form-control">
-      <div class="invalid-feedback" *ngIf="emailRef.dirty && emailRef.invalid">
+      <div class="invalid-feedback" *ngIf="displayErrors(emailRef)">
         <div *ngIf="emailRef.errors?.required">This field is required</div>
         <div *ngIf="emailRef.errors?.minlength">This field is too short</div>
         <div *ngIf="emailRef.errors?.email">This field is not an email</div>
       </div>
     </div>
+
     <div class="form-group">
       <label for="message">Message</label>
       <textarea [(ngModel)]="contact.message"

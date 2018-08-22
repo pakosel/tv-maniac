@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {AbstractControl} from '@angular/forms';
 
 @Component({
   selector: 'tm-contact',
@@ -11,6 +12,11 @@ export class ContactComponent implements OnInit {
     email: '',
     message: ''
   }
+
+  displayErrors(control: AbstractControl): boolean {
+    return (control.dirty || control.touched) && control.invalid;
+  }
+
   constructor() { }
 
   ngOnInit() {
