@@ -6,9 +6,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class LoggedInGuard implements CanActivate {
-  canActivate(
-    next: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
-    return true;
+  canActivate(next: ActivatedRouteSnapshot): boolean {
+    const isLoggedIn = prompt('Are you logged in?') === 'yes';
+    return isLoggedIn;
   }
 }
