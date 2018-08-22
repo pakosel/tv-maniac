@@ -24,7 +24,7 @@ export class SearchComponent implements OnInit {
   ngOnInit() {
   }
 
-  getAllBookmarks(): Show[] {
+  get allBookmarks(): Show[] {
     return this.bs.getAll();
   }
 
