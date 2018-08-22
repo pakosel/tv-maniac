@@ -4,12 +4,14 @@ import { SearchComponent } from './search/search.component';
 import {HttpClientModule} from '@angular/common/http';
 import { PosterComponent } from './poster/poster.component';
 import {FormsModule} from '@angular/forms';
+import { BookmarksModule } from '../bookmarks/bookmarks.module';
 
 @NgModule({
   imports: [
     CommonModule,
     HttpClientModule,
     FormsModule,
+    BookmarksModule,
   ],
   declarations: [SearchComponent, PosterComponent]
 })
