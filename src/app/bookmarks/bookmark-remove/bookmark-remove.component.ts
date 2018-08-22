@@ -15,11 +15,11 @@ export class BookmarkRemoveComponent implements OnInit {
   ngOnInit() {
   }
 
-  removeBookmark(show: Show): void {
-    this.bs.remove(show.id);
+  removeBookmark(): void {
+    this.bs.remove(this.show.id);
   }
 
-  isNotBookmark(show: Show): boolean {
-    return !this.bs.has(show.id);
+  isNotBookmark(): boolean {
+    return !this.bs.has(this.show.id);
   }
 }
