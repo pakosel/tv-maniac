@@ -22,7 +22,7 @@ const routes: Routes = [
     data: {
       roles: ['admin', 'editor'],
     },
-    //canActivate: [LoggedInGuard]
+    // canActivate: [LoggedInGuard]
   },
   {path: 'contact', component: ContactComponent},
   {path: '**', component: Page404Component}
