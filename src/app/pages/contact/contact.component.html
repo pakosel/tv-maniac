@@ -3,16 +3,24 @@
     <h1>Contact us</h1>
     <div class="form-group">
       <label for="email">Email</label>
-      <input [(ngModel)]="contact.email" name="email" id="email" type="email" class="form-control is-invalid">
-      <div class="invalid-feedback">This field is invalid</div>
+      <input [(ngModel)]="contact.email"
+             [ngClass]="{'is-invalid': emailRef.dirty && emailRef.invalid}"
+             #emailRef="ngModel"
+             required minlength="3" email
+             name="email" id="email" type="email" class="form-control">
+      <div class="invalid-feedback" *ngIf="emailRef.dirty && emailRef.invalid">
+        <div *ngIf="emailRef.errors?.required">This field is required</div>
+        <div *ngIf="emailRef.errors?.minlength">This field is too short</div>
+        <div *ngIf="emailRef.errors?.email">This field is not an email</div>
+      </div>
     </div>
     <div class="form-group">
       <label for="message">Message</label>
-      <textarea [(ngModel)]="contact.message" name="message" id="message" class="form-control is-invalid"></textarea>
+      <textarea [(ngModel)]="contact.message"
+                minlength="5"
+                name="message" id="message" class="form-control is-invalid"></textarea>
       <div class="invalid-feedback">This field is invalid</div>
     </div>
     <button disabled class="btn btn-primary float-right">Send</button>
-
-    <pre>{{contact | json}}</pre>
   </form>
 </div>
