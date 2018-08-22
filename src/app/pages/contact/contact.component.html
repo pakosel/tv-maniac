@@ -1,5 +1,5 @@
 <div class="row">
-  <form class="col-md-6 offset-md-3">
+  <form #formRef="ngForm" class="col-md-6 offset-md-3">
     <h1>Contact us</h1>
     <div class="form-group">
       <label for="email">Email</label>
@@ -22,6 +22,6 @@
                 name="message" id="message" class="form-control is-invalid"></textarea>
       <div class="invalid-feedback">This field is invalid</div>
     </div>
-    <button disabled class="btn btn-primary float-right">Send</button>
+    <button [disabled]="formRef.invalid" class="btn btn-primary float-right">Send</button>
   </form>
 </div>
