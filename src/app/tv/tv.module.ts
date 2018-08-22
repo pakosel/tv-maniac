@@ -5,6 +5,8 @@ import {HttpClientModule} from '@angular/common/http';
 import { PosterComponent } from './poster/poster.component';
 import {FormsModule} from '@angular/forms';
 import { BookmarksModule } from '../bookmarks/bookmarks.module';
+import { ShowDetailsComponent } from './show-details/show-details.component';
+import {RouterModule} from '@angular/router';
 
 @NgModule({
   imports: [
@@ -12,7 +14,8 @@ import { BookmarksModule } from '../bookmarks/bookmarks.module';
     HttpClientModule,
     FormsModule,
     BookmarksModule,
+    RouterModule
   ],
-  declarations: [SearchComponent, PosterComponent]
+  declarations: [SearchComponent, PosterComponent, ShowDetailsComponent]
 })
 export class TvModule { }

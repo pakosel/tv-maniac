@@ -1,3 +1,5 @@
 <img class="img-fluid rounded" [src]="imageUrl" alt="">
 <ng-content></ng-content>
-<h4>{{show.name}}</h4>
+<h4>
+  <a routerLink="/tv/{{show.id}}">{{show.name}}</a>
+</h4>
