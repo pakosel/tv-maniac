@@ -18,9 +18,14 @@
     <div class="form-group">
       <label for="message">Message</label>
       <textarea [(ngModel)]="contact.message"
-                minlength="5"
-                name="message" id="message" class="form-control is-invalid"></textarea>
-      <div class="invalid-feedback">This field is invalid</div>
+                #messageRef="ngModel"
+                [ngClass]="{'is-invalid': displayErrors(messageRef)}"
+                minlength="5" required
+                name="message" id="message" class="form-control"></textarea>
+      <div class="invalid-feedback" *ngIf="displayErrors(messageRef)">
+        <div *ngIf="messageRef.errors?.required">This field is required</div>
+        <div *ngIf="messageRef.errors?.minlength">This field is too short</div>
+      </div>
     </div>
     <button [disabled]="formRef.invalid" class="btn btn-primary float-right">Send</button>
   </form>
