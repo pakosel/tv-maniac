@@ -13,7 +13,10 @@ export class LoggedInGuard implements CanActivate {
   canActivate(next: ActivatedRouteSnapshot): boolean {
     const isLoggedIn = prompt('Are you logged in?') === 'yes';
 
-    if(!isLoggedIn) {
+    const { roles } = next.data;
+    const hasRoles = prompt('roles') === roles.join(',');
+
+    if(!isLoggedIn || !hasRoles) {
       this.router.navigateByUrl('');
     }
 

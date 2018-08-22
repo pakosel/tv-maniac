@@ -19,6 +19,9 @@ const routes: Routes = [
     resolve: {
       show: ShowDetailsResolver,
     },
+    data: {
+      roles: ['admin', 'editor'],
+    },
     canActivate: [LoggedInGuard]
   },
   {path: 'contact', component: ContactComponent},
