@@ -1,11 +1,13 @@
-import {Component, Input, OnChanges, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, Component, Input, OnChanges, ViewEncapsulation} from '@angular/core';
 import {Show} from '../tv.models';
 import {get} from 'lodash';
 
 @Component({
   selector: 'tm-poster',
   templateUrl: './poster.component.html',
-  styleUrls: ['./poster.component.scss']
+  styleUrls: ['./poster.component.scss'],
+  encapsulation: ViewEncapsulation.Emulated,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PosterComponent implements OnChanges {
   @Input() show: Show;
