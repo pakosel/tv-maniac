@@ -13,7 +13,7 @@ export class SearchComponent implements OnInit {
   query = 'flash';
 
   constructor(private tv: TvmazeService,
-              private bs: BookmarksService) {
+              private bs: BookmarksService<Show>) {
   }
 
   search(query: string): void {
@@ -25,7 +25,7 @@ export class SearchComponent implements OnInit {
   }
 
   getAllBookmarks(): Show[] {
-    return this.bs.getAll() as Show[];
+    return this.bs.getAll();
   }
 
   saveBookmark(show: Show): void {

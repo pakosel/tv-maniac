@@ -4,17 +4,17 @@ import {Bookmark, BookmarkId} from './bookmarks.models';
 @Injectable({
   providedIn: 'root'
 })
-export class BookmarksService {
-  items: Bookmark[] = [];
+export class BookmarksService<T extends Bookmark> {
+  items: T[] = [];
   // items: Array<Bookmark> = []; // equivalent definition
 
   constructor() { }
 
-  getAll(): Bookmark[] {
+  getAll(): T[] {
     return [... this.items]; // array clone
   }
 
-  add(item: Bookmark): void {
+  add(item: T): void {
     this.items.push(item);
   }
 
