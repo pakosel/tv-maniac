@@ -21,10 +21,7 @@
   <section class="row">
     <div class="col col-4" *ngFor="let show of shows">
       <tm-poster [show]="show">
-        <button class="btn btn-primary btn-sm"
-        (click)="saveBookmark(show)"
-        [disabled]="isBookmark(show)"
-        >save</button>
+        <tm-bookmark-add [show]="show"></tm-bookmark-add>
       </tm-poster>
     </div>
   </section>
