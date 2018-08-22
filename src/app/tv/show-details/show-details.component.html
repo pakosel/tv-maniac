@@ -1,3 +1,8 @@
-<p>
-  show-details works!
-</p>
+<div class="row">
+  <tm-poster class="col col-3" [show]="show"></tm-poster>
+
+  <section class="col">
+    <h1>{{show.name}}</h1>
+    <div>{{show.summary}}</div>
+  </section>
+</div>

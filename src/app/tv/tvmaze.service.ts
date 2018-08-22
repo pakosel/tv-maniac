@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Show, ShowResponse} from './tv.models';
+import {Show, ShowDetails, ShowResponse} from './tv.models';
 import {map} from 'rxjs/operators';
 import {Observable} from 'rxjs';
 
@@ -19,5 +19,10 @@ export class TvmazeService {
     const url = `${this.apiRoot}/search/shows?q=${query}`;
     return this.http.get<ShowResponse[]>(url)
       .pipe(map((showsResponse) => showsResponse.map(showResponse => showResponse.show)));
+  }
+
+  getShow(id: string): Observable<ShowDetails> {
+    const url = `${this.apiRoot}/shows/${id}?embed=episodes`;
+    return this.http.get<ShowDetails>(url);
   }
 }

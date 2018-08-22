@@ -6,6 +6,9 @@ import {ContactComponent} from './pages/contact/contact.component';
 import {Page404Component} from './page/page404/page404.component';
 import {ShowDetailsComponent} from './tv/show-details/show-details.component';
 
+export interface ShowDetailsParams {
+  id: string;
+}
 const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'tv', component: SearchComponent},
