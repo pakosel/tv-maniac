@@ -2,6 +2,8 @@
   <tm-poster class="col col-3" [show]="show"></tm-poster>
 
   <section class="col">
+    <h1>{{counter$ | async}}</h1>
+
     <h1>{{show?.name}}</h1>
     <div [innerHTML]="show?.summary"></div>
 

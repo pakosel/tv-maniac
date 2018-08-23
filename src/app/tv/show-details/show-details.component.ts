@@ -3,6 +3,7 @@ import {ActivatedRoute} from '@angular/router';
 import {ShowDetailsParams} from '../../app-routing.module';
 import {TvmazeService} from '../tvmaze.service';
 import {ShowDetails} from '../tv.models';
+import {interval} from 'rxjs';
 
 @Component({
   selector: 'tm-show-details',
@@ -11,6 +12,7 @@ import {ShowDetails} from '../tv.models';
 })
 export class ShowDetailsComponent implements OnInit {
   show: ShowDetails;
+  counter$ = interval(1000);
 
   constructor(private route: ActivatedRoute,
               private tv: TvmazeService) {
