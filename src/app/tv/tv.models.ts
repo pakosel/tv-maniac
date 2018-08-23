@@ -34,7 +34,7 @@ interface Embedded {
   episodes: Episode[];
 }
 
-interface Episode {
+export interface Episode {
   id: number;
   url: string;
   name: string;
