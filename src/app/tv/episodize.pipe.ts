@@ -8,10 +8,10 @@ export class EpisodizePipe implements PipeTransform {
 
   transform(value: Episode): string {
     const {number, season} = value;
-    const numberPadded = number > 9 ? number.toString() : '0' + number;
-    const seasonPadded = season > 9 ? season.toString() : '0' + season;
+    const pad = val => val > 9 ? val.toString() : '0' + val;
 
-    return `S${seasonPadded}E${numberPadded}`;
+    return `S${pad(season)}E${pad(number)}`;
   }
+
 
 }
