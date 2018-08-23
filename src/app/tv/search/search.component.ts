@@ -20,7 +20,7 @@ export class SearchComponent implements OnInit {
               private fb: FormBuilder) {
     const queryControl = this.fb.control(
       'flash',
-      [Validators.required, Validators.minLength(2), startsWithLetterValidator(true)]
+      [Validators.required, Validators.minLength(2), startsWithLetterValidator(false)]
     );
     this.searchForm = this.fb.group({
       query: queryControl
