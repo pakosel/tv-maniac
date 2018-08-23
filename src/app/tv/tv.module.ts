@@ -7,6 +7,7 @@ import {FormsModule} from '@angular/forms';
 import { BookmarksModule } from '../bookmarks/bookmarks.module';
 import { ShowDetailsComponent } from './show-details/show-details.component';
 import {RouterModule} from '@angular/router';
+import { EpisodizePipe } from './episodize.pipe';
 
 @NgModule({
   imports: [
@@ -16,6 +17,6 @@ import {RouterModule} from '@angular/router';
     BookmarksModule,
     RouterModule
   ],
-  declarations: [SearchComponent, PosterComponent, ShowDetailsComponent]
+  declarations: [SearchComponent, PosterComponent, ShowDetailsComponent, EpisodizePipe]
 })
 export class TvModule { }
