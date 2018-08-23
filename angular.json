@@ -46,7 +46,9 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "node_modules/primeng/resources/themes/bootstrap.css",
+              "node_modules/primeng/resources/primeng.min.css"
             ],
             "scripts": []
           },
