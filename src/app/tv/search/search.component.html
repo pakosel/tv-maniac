@@ -13,9 +13,9 @@
   <div class="col">
     <h1 class="h3">Search</h1>
     <form class="input-group" [formGroup]="searchForm">
-      <input formControlName="query" name="query" type="search" class="form-control">
+      <input formControlName="query" name="query" type="search" class="form-control" [class.is-invalid]="searchForm.get('query').invalid">
       <div class="input-group-append">
-        <button type="submit" class="btn btn-primary" (click)="search(searchForm.get('query').value)">find</button>
+        <button [disabled]="searchForm.invalid" type="submit" class="btn btn-primary" (click)="search(searchForm.get('query').value)">find</button>
       </div>
     </form>
   </div>
