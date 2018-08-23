@@ -5,12 +5,12 @@ import { Episode } from './tv.models';
   name: 'episodize'
 })
 export class EpisodizePipe implements PipeTransform {
+  private pad = val => val > 9 ? val.toString() : '0' + val;
 
-  transform(value: Episode): string {
-    const {number, season} = value;
-    const pad = val => val > 9 ? val.toString() : '0' + val;
+  transform({number, season}: Episode): string {
+    const [numberPadded, seasonPadded] = [number, season].map(this.pad);
 
-    return `S${pad(season)}E${pad(number)}`;
+    return `s${seasonPadded}e${numberPadded}`;
   }
 
 
