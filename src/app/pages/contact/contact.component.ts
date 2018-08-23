@@ -10,7 +10,8 @@ export class ContactComponent implements OnInit {
 
   contact = {
     email: '',
-    message: ''
+    message: '',
+    phone: ''
   }
 
   displayErrors(control: AbstractControl): boolean {
