@@ -3,7 +3,7 @@ import {TvmazeService} from '../tvmaze.service';
 import {Show} from '../tv.models';
 import {BookmarksService} from '../../bookmarks/bookmarks.service';
 import {FormBuilder, FormGroup} from '@angular/forms';
-import {map} from 'rxjs/operators';
+import {debounceTime, map} from 'rxjs/operators';
 
 @Component({
   selector: 'tm-search',
@@ -23,7 +23,10 @@ export class SearchComponent implements OnInit {
     });
 
     this.searchForm.valueChanges
-      .subscribe(query => this.search(query.query));
+      .pipe(
+        debounceTime(1000),
+        map(v => v.query)) // equivalent: map({query} => query)
+      .subscribe(this.search.bind(this));
   }
 
   search(query: string): void {
