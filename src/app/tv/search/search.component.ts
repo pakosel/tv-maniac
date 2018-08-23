@@ -4,6 +4,7 @@ import {Show} from '../tv.models';
 import {BookmarksService} from '../../bookmarks/bookmarks.service';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {debounceTime, filter, map} from 'rxjs/operators';
+import {startsWithLetterValidator} from '../../forms/start-with-letter.validator';
 
 @Component({
   selector: 'tm-search',
@@ -19,7 +20,7 @@ export class SearchComponent implements OnInit {
               private fb: FormBuilder) {
     const queryControl = this.fb.control(
       'flash',
-      [Validators.required, Validators.minLength(2)]
+      [Validators.required, Validators.minLength(2), startsWithLetterValidator]
     );
     this.searchForm = this.fb.group({
       query: queryControl
