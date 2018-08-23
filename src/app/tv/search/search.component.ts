@@ -3,6 +3,7 @@ import {TvmazeService} from '../tvmaze.service';
 import {Show} from '../tv.models';
 import {BookmarksService} from '../../bookmarks/bookmarks.service';
 import {FormBuilder, FormGroup} from '@angular/forms';
+import {map} from 'rxjs/operators';
 
 @Component({
   selector: 'tm-search',
@@ -20,6 +21,9 @@ export class SearchComponent implements OnInit {
     this.searchForm = this.fb.group({
       query: queryControl
     });
+
+    this.searchForm.valueChanges
+      .subscribe(query => this.search(query.query));
   }
 
   search(query: string): void {
