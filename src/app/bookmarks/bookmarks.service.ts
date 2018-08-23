@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Bookmark, BookmarkId} from './bookmarks.models';
 import {HttpClient} from '@angular/common/http';
+import {environment} from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,7 @@ import {HttpClient} from '@angular/common/http';
 export class BookmarksService<T extends Bookmark> {
   items: T[] = [];
   // items: Array<Bookmark> = []; // equivalent definition
-  private readonly apiRoot = 'http://localhost:3000/bookmarks';
+  private readonly apiRoot = environment.bookmarksApiRoot;
 
   constructor(private http: HttpClient) {
     this.http.get<T[]>(this.apiRoot)
